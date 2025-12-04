@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Hội Thảo Trực Tuyến VietMy College</title>
+    <!-- Google Fonts: Roboto cho tiếng Anh/Việt, Padauk cho tiếng Myanmar -->
+    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Bảng màu chuẩn */
+            --primary-color: #004aad; /* Xanh đậm thương hiệu */
+            --secondary-color: #f0f4f8;
+            --accent-color: #ff6b00; /* Cam điểm nhấn */
+            --text-color: #2c3e50;
+            --text-light: #546e7a;
+            --success-color: #27ae60;
+            --bg-gradient: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+            --card-radius: 20px;
+            --shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Roboto', 'Padauk', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 1100px; /* Mở rộng chiều ngang cho Desktop */
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border-top: 6px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Header & Logo --- */
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: #fff;
+            z-index: 2;
+        }
+
+        .logo {
+            max-width: 360px; /* Tăng kích thước logo lớn hơn (cũ: 280px) */
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.05));
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem; 
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        /* --- Layout chính (Grid cho Desktop) --- */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            padding: 0 40px 40px;
+            gap: 40px;
+        }
+
+        /* --- Cột thông tin (Info Section) --- */
+        .info-col {
+            background-color: #f7f9fc;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #e1e8ed;
+        }
+
+        .info-col p { margin-bottom: 15px; font-size: 1.05rem; }
+        .info-col strong { color: var(--primary-color); font-weight: 700; }
+
+        .program-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 20px 0 10px;
+            display: block;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .program-list { margin-left: 20px; margin-bottom: 15px; }
+        .program-list li { margin-bottom: 8px; font-size: 1rem; }
+
+        .divider {
+            height: 1px;
+            background: #dce1e6;
+            margin: 25px 0;
+        }
+
+        .mm-text {
+            font-family: 'Padauk', sans-serif;
+            font-size: 1.1rem; /* Chữ Myanmar to hơn chút để dễ đọc */
+        }
+
+        /* --- Cột Form --- */
+        .form-col {
+            padding: 10px 0;
+        }
+
+        .form-group { margin-bottom: 25px; }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--text-color);
+            font-size: 1.1rem; /* Label to hơn */
+        }
+        
+        .sub-label {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-top: 4px;
+            font-weight: 400;
+            font-family: 'Padauk', sans-serif;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select {
+            width: 100%;
+            padding: 16px; /* Ô nhập liệu to hơn, dễ bấm trên mobile */
+            border: 2px solid #dfe6e9;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            background-color: #fafafa;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(0, 74, 173, 0.15);
+            outline: none;
+        }
+
+        /* Radio buttons to hơn */
+        .radio-group {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+        .radio-item:hover { background: #eef2ff; border-color: #dae0ff; }
+        input[type="radio"] {
+            width: 24px; height: 24px; accent-color: var(--primary-color);
+        }
+
+        /* Nút Submit */
+        .btn-submit {
+            width: 100%;
+            padding: 20px; /* Nút to, dễ bấm */
+            background: linear-gradient(45deg, var(--primary-color), #003380);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 74, 173, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(0, 74, 173, 0.4); }
+        .btn-submit:active { transform: scale(0.98); }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 25px; height: 25px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 15px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* --- Success Overlay (Có Logo) --- */
+        .success-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            z-index: 10;
+            padding: 40px;
+        }
+        .success-overlay.active { opacity: 1; visibility: visible; }
+        
+        .success-logo {
+            max-width: 220px; /* Logo trong màn hình success */
+            margin-bottom: 30px;
+        }
+
+        .success-icon-box {
+            width: 80px; height: 80px;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+            color: var(--success-color);
+            font-size: 40px;
+            border: 2px solid var(--success-color);
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+        .success-text h2 { color: var(--primary-color); font-size: 2rem; margin-bottom: 10px; }
+        .success-text p { font-size: 1.1rem; color: var(--text-light); }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        
+        /* Tablet & Desktop: Chia đôi màn hình để không bị dài quá */
+        @media (min-width: 900px) {
+            .container {
+                max-width: 1200px;
+            }
+            .main-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr; /* Chia 50-50 */
+                gap: 50px;
+                padding: 0 50px 50px;
+            }
+            .header h1 { font-size: 2.5rem; }
+            
+            /* Làm cho cột Info có thanh cuộn nếu nội dung quá dài trên màn hình ngắn */
+            .info-col {
+                max-height: 800px;
+                overflow-y: auto;
+                scrollbar-width: thin;
+                scrollbar-color: #ccc transparent;
+            }
+        }
+
+        /* Mobile: Tối ưu hiển thị dọc */
+        @media (max-width: 899px) {
+            body { padding: 10px; }
+            .container { border-radius: 15px; }
+            
+            .logo { max-width: 260px; } /* Tăng kích thước logo mobile (cũ: 220px) */
+            
+            .header h1 { font-size: 1.8rem; }
+            .main-content { padding: 0 20px 30px; gap: 30px; }
+            .radio-group { flex-direction: column; gap: 10px; }
+            .radio-item { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="https://github.com/duongcanhquan/image/raw/main/logo%20vietmy.webp" alt="VietMy College Logo" class="logo">
+            <h1>REGISTRATION FORM / မှတ်ပုံတင်ပုံစံ</h1>
+        </div>
+
+        <div class="main-content">
+            <!-- Cột Trái: Thông tin -->
+            <div class="info-col">
+                <p><strong>Thank you for your interest in our study programs in Vietnam.</strong></p>
+                <p>Please complete the information below so that the college can send you the Online access link, relevant documents (Zoom/Google Meet), and scholarship offers prepared for you.</p>
+                
+                <div class="divider"></div>
+
+                <p class="mm-text" style="color: var(--primary-color); font-weight: 700;">ကျွန်ုပ်တို့၏ Việt Nam တွင် လေ့လာသင်ကြားရေး ပရော်ဂရမ်များအတွက် စိတ်ဝင်စားသည့်အတွက် ကျေးဇူးတင်ပါတယ်။</p>
+                <p class="mm-text">ကောလိပ်က သင့်အတွက် ပြင်ဆင်ထားသော အွန်လိုင်း ဝင်ရောက်အသုံးပြုရန် လင့်ခ် (Zoom/Google Meet) နှင့် ပတ်သက်သည့်เอกสารများ၊ ပညာသင်ဆုအချက်အလက်များကို ပို့ပေးရန်အတွက် အောက်ပါသမားရိုးကျ အချက်အလက်များကို ဖြည့်သွင်းပေးပါရန် လိုအပ်ပါတယ်။</p>
+
+                <div class="divider"></div>
+
+                <p><strong>We are pleased to introduce a range of attractive and high-quality training programs at Viet My College:</strong></p>
+
+                <div class="program-block">
+                    <span class="program-title">1. Japanese Short-term Courses:</span>
+                    <p>A Japanese language program designed for 6–9 months, focusing on comprehensive skill development and providing a Certificate of Completion.</p>
+                </div>
+
+                <div class="program-block">
+                    <span class="program-title">2. College Program:</span>
+                    <p>A formal 2-year academic program that equips students with professional knowledge and practical skills. Upon graduation, students will receive a college diploma.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="program-block mm-text">
+                    <span class="program-title">1. ဂျပန်ဘာသာ အတိုချုံးသင်တန်းများ</span>
+                    <p>၆–၉ လ အတောအတွင်း သင်ကြားရန် ရည်ရွယ်ထားသော ဂျပန်ဘာသာစကား သင်ရိုးတစ်ခုဖြစ်ပြီး လုံးဝပြီးပြည့်စုံသော ဘာသာစကား ကျွမ်းကျင်မှုများကို တည်ဆောက်ပေးပြီး Certificate of Completion ကို ရရှိနိုင်ပါတယ်။</p>
+                </div>
+
+                <div class="program-block mm-text">
+                    <span class="program-title">2. College Program (နှစ်နှစ်သင်တန်း)</span>
+                    <p>တရားဝင် ၂ နှစ်သင်တန်းဖြစ်ပြီး ဗဟုသုတ၊ အတတ်ပညာနှင့် လက်တွေ့ကျွမ်းကျင်မှုများကို ပြည့်စုံစွာ သင်ကြားပေးပါတယ်။ သင်တန်းပြီးဆုံးသောအခါ College Diploma ကို ရရှိနိုင်ပါသည်။</p>
+                </div>
+            </div>
+
+            <!-- Cột Phải: Form -->
+            <div class="form-col">
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label>Họ và Tên / Full Name</label>
+                        <span class="sub-label">အမည်</span>
+                        <input type="text" name="FullName" required placeholder="Ví dụ: Nguyễn Van A">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giới tính / Gender</label>
+                        <span class="sub-label">ကျား/မ</span>
+                        <select name="Gender" required>
+                            <option value="" disabled selected>Select / ရွေးချယ်ပါ</option>
+                            <option value="Male">Nam / Male / ကျား</option>
+                            <option value="Female">Nữ / Female / မ</option>
+                            <option value="Other">Khác / Other / အခြား</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ngày sinh / Date of Birth</label>
+                        <span class="sub-label">မွေးသက္ကရာဇ်</span>
+                        <input type="date" name="DOB" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Số điện thoại / Phone Number</label>
+                        <span class="sub-label">ဖုန်းနံပါတ်</span>
+                        <input 
+                            type="tel" 
+                            name="Phone" 
+                            required 
+                            placeholder="+84... (Chỉ nhập số / Numbers only)" 
+                            pattern="[0-9+]{9,15}"
+                            title="Vui lòng nhập số điện thoại hợp lệ (chỉ chứa số, có thể có dấu +, độ dài 9-15 ký tự)"
+                            oninput="this.value = this.value.replace(/[^0-9+]/g, '').replace(/(\..*)\./g, '$1');"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <span class="sub-label">အီးမေးလ်</span>
+                        <input 
+                            type="email" 
+                            name="Email" 
+                            required 
+                            placeholder="student@example.com"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                            title="Vui lòng nhập đúng định dạng email (ví dụ: student@email.com)"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bạn có quan tâm đến việc kiếm thêm thu nhập trong thời gian học tập tại Việt Nam không?</label>
+                        <span class="sub-label">Are you interested in earning extra income during your studies in Vietnam? / ဗီယက်နမ်တွင် ပညာသင်ကြားနေစဉ် အပိုဝင်ငွေရှာရန် စိတ်ဝင်စားပါသလား။</span>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="Interest" value="Yes" required>
+                                Có / Yes / ဟုတ်ကဲ့
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="Interest" value="No">
+                                Không / No / မဟုတ်ပါ
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <span>Đăng Ký Ngay / Register Now</span>
+                        <div class="spinner"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Overlay với Logo -->
+        <div class="success-overlay" id="successMessage">
+            <img src="https://github.com/duongcanhquan/image/raw/main/logo%20vietmy.webp" alt="VietMy College Logo" class="success-logo">
+            
+            <div class="success-icon-box">✓</div>
+            
+            <div class="success-text">
+                <h2>Đăng Ký Thành Công!</h2>
+                <p>Cảm ơn bạn đã đăng ký tham gia hội thảo.</p>
+                <br>
+                <h2>Registration Successful!</h2>
+                <p>Thank you for registering.</p>
+                <br>
+                <h2 class="mm-text">မှတ်ပုံတင်ခြင်း အောင်မြင်ပါသည်။</h2>
+                <p class="mm-text">ဆွေးနွေးပွဲအတွက် မှတ်ပုံတင်ခြင်းအတွက် ကျေးဇူးတင်ပါသည်။</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- CẤU HÌNH ---
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzt395uf60fQ7qbHJc8psRvgEeuRyCQQHwpA2Nuq8CK4kLPHoRB8aYKBHF6OXgmrOxblw/exec'; 
+        
+        // --- LOGIC ---
+        const form = document.forms['registrationForm'];
+        const successOverlay = document.getElementById('successMessage');
+        const submitBtn = document.querySelector('.btn-submit');
+        const btnText = submitBtn.querySelector('span');
+        const spinner = document.querySelector('.spinner');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btnText.style.display = 'none';
+            spinner.style.display = 'block';
+            submitBtn.disabled = true;
+
+            // Giả lập gửi thành công (Thay bằng fetch thật khi dùng)
+            setTimeout(() => {
+                showSuccess();
+            }, 1500);
+
+            /* fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(() => showSuccess())
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Error! Please try again.');
+                btnText.style.display = 'block';
+                spinner.style.display = 'none';
+                submitBtn.disabled = false;
+            });
+            */
+        });
+
+        function showSuccess() {
+            successOverlay.classList.add('active');
+        }
+    </script>
+</body>
+</html>
